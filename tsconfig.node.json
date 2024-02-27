@@ -17,17 +17,3 @@
     "types": ["node"]
   }
 }
-
-// {
-//   "extends": "@tsconfig/node18/tsconfig.json",
-//   "include": ["vite.config.*", "vitest.config.*", "cypress.config.*", "playwright.config.*"],
-//   "compilerOptions": {
-//     "moduleResolution":"node",
-//     "experimentalDecorators": true,
-//     "emitDecoratorMetadata": true,
-//     "strictPropertyInitialization": false,
-//     "composite": true,
-//     "module": "ESNext",
-//     "types": ["node"]
-//   }
-// }

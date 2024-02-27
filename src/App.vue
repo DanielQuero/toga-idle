@@ -1,6 +1,6 @@
 <template lang="pug">
 .container
-  h1 Toga idle
+  h1 {{ $t('common.title') }}
   resources.resources-section(:resources="resources")
   actions.actions-section(@woodCollected="collectWood" @foodCollected="collectFood")
 </template>
