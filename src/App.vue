@@ -11,14 +11,12 @@ import { Game } from './models/Game'
 import Resources from '@/components/sections/resources/Resources.vue'
 import Management from '@/components/sections/management/Management.vue'
 import VillageMap from '@/components/sections/village/VillageMap.vue'
-import Diary from '@/components/sections/village/Diary.vue'
 
 export default defineComponent({
   components: {
     Resources,
     Management,
     VillageMap,
-    Diary,
   },
   data() {
     return {
