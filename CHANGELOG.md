@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-04-14
+### Added
+- Added new buildings (lumber camp, port, warehouse).
+- Created new jobs tabs (with lumberjack, fisher and unemployed jobs).
+- Added new translations.
+- Created settings tabs (where you can change the language).
+- New illustrations for each building.
+- Improved UX.
+### Changed
+- Put houses in a separate tab instead of inside buildings.
+
 ## [0.2.0] - 2024-03-20
 ### Added
 - Added main classes managers.
