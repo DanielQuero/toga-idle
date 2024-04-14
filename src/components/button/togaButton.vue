@@ -1,6 +1,7 @@
 <template lang="pug">
-button.flex.items-center.justify-center.text-white.font-bold.py-2.px-3.rounded.bg-ui-bg.border-b-8.border-ui-bg-dark.w-40(
-  class="md:w-w-32"
+button.flex.items-center.justify-center.text-white.py-1.px-1.rounded.bg-ui-bg.border-b-8.border-ui-bg-dark.w-24.text-xs(
+  v-wave="waveEffect"
+  class="md:w-32 xl:w-36 xl:py-2 md:px-3 md:font-bold xs:text-sm 2xl:text-base"
   :class="disabled ? 'opacity-50 pointer-events-none' : 'hover:bg-ui-bg-dark'"
 )
   slot
@@ -18,6 +19,11 @@ export default defineComponent({
       default: false
     },
     withMargin: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    waveEffect: {
       type: Boolean,
       required: false,
       default: false
