@@ -30,7 +30,7 @@ export interface CatsList {
 
 export class CatsManager {
 	private cats: CatsByJobs
-	private baseCatCost = { food: 4 }
+	private baseCatCost = { food: 2 }
 	private baseJobResourcesCollection = {
 		unemployed: {},
 		lumberjack: { wood: 0.2 },
