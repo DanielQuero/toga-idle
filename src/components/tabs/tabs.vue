@@ -1,12 +1,15 @@
 <template lang="pug">
 .tabs
   ul.flex.rounded-t-lg
-    li.px-8.py-2.w-36.cursor-pointer.rounded-t-lg.border-2.border-b-0.border-black.origin-left(
-      v-for="(tab, index) in value"
+    li.cursor-pointer.rounded-t-lg.border-2.border-b-0.border-black.text-2xs(
+      v-for="(tab, index) in tabs"
       :key="index"
       @click="selectTab(index)"
-      :class="tab.selected ? 'bg-section-bg scale-110': 'bg-ui-bg'"
-    ) {{ tab.title }}
+      class="px-1.5 sm:px-3 lg:px-4 xl:px-4.5 2xl:px-6 py-1.5 lg:py-2 xs:text-sm 2xl:text-base"
+      :class="tab.selected ? 'bg-section-bg scale-110': 'bg-ui-bg', (index === 0) ? 'origin-left' : '', (index === tabs.length - 1) ? 'ml-auto origin-right' : ''"
+    )
+      span {{ tab.title }}
+      img.w-5(v-if="tab.icon" :src="tab.icon")
   .tab-content
     slot
 </template>
@@ -14,30 +17,25 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-interface Tab {
+export interface Tab {
   title: string
   component: string
   selected: boolean
+  icon?: string
 }
 
 export default defineComponent({
   name: 'Tabs',
   props: {
-    value: {
+    tabs: {
       type: Array as () => Tab[],
       required: true
     }
   },
   methods: {
     selectTab(index: number) {
-      this.cleanPreviousSelectedTab()
-      this.value[index].selected = true
+      this.$emit('changeTab', index)
     },
-    cleanPreviousSelectedTab() {
-      this.value.forEach((tab) => {
-        tab.selected = false
-      })
-    }
   },
 })
 </script>

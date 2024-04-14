@@ -1,24 +1,24 @@
 <template lang="pug">
 .actions
-  .actions-list.flex.justify-center.items-center.flex-wrap.pt-6
-    .m-2.text-center.flex.flex-col.items-center
-      img.w-20.mb-1(class="md:w-28" src="/images/actions/chopTree.webp")
-      tooltip.m-2(:text="$t('resources.pickupWoodDescription')")
-        toga-button(@click="collectWood" :disabled="!canCollectWood")
-          | {{ $t('resources.pickupWood') }}
-          img.ml-3(src="/images/resources/wood.webp" width="32")
-    .m-2.text-center.flex.flex-col.items-center
-      img.w-20.mb-1(class="md:w-28" src="/images/actions/fishing.webp")
-      tooltip.m-2(:text="$t('resources.pickupFoodDescription')")
-        toga-button(@click="collectFood" :disabled="!canCollectFood")
-          | {{ $t('resources.pickupFood') }}
-          img.ml-3(src="/images/resources/food.webp" width="32")
-    .m-2.text-center.flex.flex-col.items-center
-      img.w-20.mb-1(class="md:w-28" src="/images/actions/attractCat.webp")
-      tooltip.m-2(:text="$t('cats.attractCatDescription')")
-        toga-button(:disabled="!canAttractNextCat" @click="attractCat")
+  .actions-list.flex.justify-center.items-center.flex-wrap.pt-2(class="lg:pt-6")
+    .m-2.text-center.flex.flex-col.items-center(class="md:m-2 2xl:mx-6")
+      img.w-24.mb-1(class="md:w-32 xl:w-36" src="/images/actions/chopTree.webp")
+      tooltip(:text="$t('actions.pickupWoodDescription')")
+        toga-button(@click="collectWood" :disabled="!canCollectWood" waveEffect)
+          | {{ $t('actions.pickupWood') }}
+          img.ml-1.w-6(class="lg:w-8 md:ml-3" src="/images/resources/wood.webp")
+    .m-2.text-center.flex.flex-col.items-center(class="md:m-2 2xl:mx-6")
+      img.w-24.mb-1(class="md:w-32 xl:w-36" src="/images/actions/fishing.webp")
+      tooltip(:text="$t('actions.pickupFoodDescription')")
+        toga-button(@click="collectFood" :disabled="!canCollectFood" waveEffect)
+          | {{ $t('actions.pickupFood') }}
+          img.ml-1.w-6(class="lg:w-8 md:ml-3" src="/images/resources/food.webp")
+    .m-2.text-center.flex.flex-col.items-center(class="md:m-2 2xl:mx-6")
+      img.w-24.mb-1(class="md:w-32 xl:w-36" src="/images/actions/attractCat.webp")
+      tooltip(:text="$t('cats.attractCatDescription')")
+        toga-button(:disabled="!canAttractNextCat" @click="attractCat" waveEffect)
           | {{ $t('cats.attractCat') }}
-          img.ml-3(src="/images/resources/cat.webp" width="32")
+          img.ml-1.w-6(class="lg:w-8 md:ml-3" src="/images/resources/cat.webp")
         template(#extraSlot)
           cost(:value="nextCatCost" :game="game")
 </template>

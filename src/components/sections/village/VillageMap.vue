@@ -1,21 +1,13 @@
 <template lang="pug">
 .village.flex.flex-col.border-2.border-black.pt-6
   .relative
-    .sun
-      .ray_box
-            .ray.ray1
-            .ray.ray2
-            .ray.ray3
-            .ray.ray4
-            .ray.ray5
-            .ray.ray6
-            .ray.ray7
-            .ray.ray8
-            .ray.ray9
-            .ray.ray10
+    img.sun.absolute.w-24(class="md:w-32 top-[-55px] right-[-30px]" src="/images/sun.png")
 
-  .buildings.flex.mt-1.flex-wrap
-    img(v-for="house in houses" src="/images/buildings/forMap/house_lvl_1.webp" width="160")
+  .buildings.mt-1.flex.items-center.flex-wrap
+    img.w-24(v-for="house in houses" class="md:w-28 lg:w-32 2xl:w-40" src="/images/buildings/forMap/house_lvl_1.webp")
+    img.w-24(v-for="lumberCamp in lumberCamps" class="md:w-28 lg:w-32 2xl:w-40" src="/images/buildings/forMap/lumberCamp.webp")
+    img.w-24(v-for="warehouse in warehouses" class="md:w-28 lg:w-32 2xl:w-40" src="/images/buildings/forMap/warehouse.webp")
+    img.w-24(v-for="port in ports" class="md:w-28 lg:w-32 2xl:w-40" src="/images/buildings/forMap/port.webp")
 </template>
 
 <script lang="ts">
@@ -33,115 +25,28 @@ export default defineComponent({
     houses() {
       return this.game.buildingsManager.getBuildings().houses || []
     },
+    lumberCamps() {
+      return this.game.buildingsManager.getBuildings().lumberCamps || []
+    },
+    warehouses() {
+      return this.game.buildingsManager.getBuildings().warehouses || []
+    },
+    ports() {
+      return this.game.buildingsManager.getBuildings().ports || []
+    },
   },
 })
 </script>
 
 <style lang="sass" scoped>
-.village
+.village, .grass-background
   background-image: url('/background/village-field.png')
   background-size: 70px
-.sun
-  position: absolute
-  top: 0
-  right: 10px
-  margin: auto
-  width: 70px
-  height: 70px
-  border-radius: 50%
-  background: white
-  opacity: 0.9
-  box-shadow: 0px 0px 40px 15px white
 
-  .ray_box
-    position: absolute
-    margin: auto
-    top: 0px
-    left: 0
-    right: 0
-    bottom: 0
-    width: 70px
-    animation: ray_anim 120s linear infinite
+  .sun
+    animation: rotation 1s steps(4) infinite
 
-    .ray
-      background: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)
-
-      margin-left: 10px
-      border-radius: 80% 80% 0 0
-      position: absolute
-      opacity: 0.1
-
-    .ray1
-      height: 170px
-      width: 30px
-      transform: rotate(180deg)
-      top: -175px
-      left: 15px
-
-    .ray2
-      height: 100px
-      width: 8px
-      transform: rotate(220deg)
-      top: -90px
-      left: 75px
-
-    .ray3
-      height: 170px
-      width: 50px
-      transform: rotate(250deg)
-      top: -80px
-      left: 100px
-
-    .ray4
-      height: 120px
-      width: 14px
-      transform: rotate(305deg)
-      top: 30px
-      left: 100px
-
-    .ray5
-      height: 140px
-      width: 30px
-      transform: rotate(-15deg)
-      top: 60px
-      left: 40px
-
-    .ray6
-      height: 90px
-      width: 50px
-      transform: rotate(30deg)
-      top: 60px
-      left: -40px
-
-    .ray7
-      height: 180px
-      width: 10px
-      transform: rotate(70deg)
-      top: -35px
-      left: -40px
-
-    .ray8
-      height: 120px
-      width: 30px
-      transform: rotate(100deg)
-      top: -45px
-      left: -90px
-
-    .ray9
-      height: 80px
-      width: 10px
-      transform: rotate(120deg)
-      top: -65px
-      left: -60px
-
-    .ray10
-      height: 190px
-      width: 23px
-      transform: rotate(150deg)
-      top: -185px
-      left: -60px
-
-@keyframes ray_anim
+@keyframes rotation
   0%
     transform: rotate(0deg)
   100%
