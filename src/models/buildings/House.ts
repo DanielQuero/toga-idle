@@ -4,7 +4,7 @@ import type { BuildingsManager } from './BuildingsManager'
 
 export class House extends Building {
 	constructor(private buildingsManager: BuildingsManager) {
-		super({ wood: 5, food: 2 }, 1.5, 'house')
+		super({ wood: 5, food: 2 }, 1, 'house')
 	}
 
 	build(resourcesManager: ResourcesManager): boolean {
