@@ -1,9 +1,10 @@
 export default {
 	title: 'Toga Idle',
 	actionsTitle: 'Actions',
+	housesTitle: 'Houses',
 	resourcesTitle: 'Resources',
 	buildingsTitle: 'Buildings',
-	villageMapTitle: 'Map',
-	diaryTitle: 'Diary',
-  cost: 'Cost',
+	jobsTitle: 'Buildings',
+	cost: 'Cost',
+	buy: 'Buy',
 }

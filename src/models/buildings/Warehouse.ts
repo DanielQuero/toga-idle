@@ -1,10 +1,10 @@
 import { Building } from './Building'
-import { ResourcesManager } from '../resources/ResourcesManager'
+import type { ResourcesManager } from '../resources/ResourcesManager'
 import type { BuildingsManager } from './BuildingsManager'
 
-export class House extends Building {
+export class Warehouse extends Building {
 	constructor(private buildingsManager: BuildingsManager) {
-		super({ wood: 5, food: 2 }, 1, 'house')
+		super({ wood: 20, food: 10 }, 2, 'Warehouse')
 	}
 
 	build(resourcesManager: ResourcesManager): boolean {
@@ -12,6 +12,6 @@ export class House extends Building {
 	}
 
 	countOwned(): number {
-		return this.buildingsManager.getBuildings().houses?.length || 0
+		return this.buildingsManager.getBuildings().warehouses?.length || 0
 	}
 }

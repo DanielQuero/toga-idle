@@ -1,7 +1,7 @@
 <template lang="pug">
-.relative(@mouseover="show" @mouseleave="hide")
+.inline(@mouseover="show" @mouseleave="hide")
   slot
-  .tooltip.absolute.z-10.px-2.py-1.text-white.bg-gray-800.rounded-md.shadow-md.text-sm(v-if="showTooltip")
+  .max-w-36.tooltip.absolute.z-50.px-2.py-1.text-white.bg-gray-800.rounded-md.shadow-md.text-sm(v-if="showTooltip || showAlways")
     .text {{ text }}
     .extra-text.mt-3
       slot(name="extraSlot")
@@ -17,6 +17,11 @@ export default defineComponent({
     text: {
       type: String,
       required: true
+    },
+    showAlways: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data() {
@@ -26,10 +31,10 @@ export default defineComponent({
   },
   methods: {
     show() {
-      this.showTooltip = true;
+      this.showTooltip = true
     },
     hide() {
-      this.showTooltip = false;
+      this.showTooltip = false
     }
   }
 });

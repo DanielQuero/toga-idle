@@ -1,5 +1,5 @@
 <template lang="pug">
-h1.text-3xl.font-bold.underline.text-center.my-3
+h1.text-xl.font-bold.underline.text-center.my-1(class="md:text-2xl lg:text-3xl lg:my-3")
   slot
 </template>
 
